@@ -1,7 +1,7 @@
 # core/serializers.py
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Patient, Doctor
+from .models import Patient, Doctor, PatientDoctorMapping
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, min_length=6)
@@ -27,4 +27,9 @@ class PatientSerializer(serializers.ModelSerializer):
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
+        fields = '__all__'
+
+class PatientDoctorMappingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PatientDoctorMapping
         fields = '__all__'
