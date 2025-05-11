@@ -13,6 +13,7 @@ logs/
 .env
 env.*
 env
+env/
 
 # Build output
 dist/
